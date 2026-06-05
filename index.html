@@ -65,6 +65,14 @@
   .card .go a{color:var(--molten)}
   .card .go .soon{color:var(--bone-faint);font-style:italic}
   .group-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-faint);margin:34px 0 0;font-weight:600}
+  .chead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:7px}
+  .chead .nm{margin-bottom:0}
+  .sbadge{font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap;font-family:'Spectral';flex-shrink:0;line-height:1.5}
+  .sbadge.live{background:rgba(232,119,43,0.13);color:var(--ember);border:1px solid rgba(232,119,43,0.32)}
+  .sbadge.scaffold{background:rgba(126,138,152,0.10);color:var(--steel-light);border:1px solid var(--steel-deep)}
+  .card.scaffold{opacity:.85}
+  .dash-legend{display:flex;gap:12px;margin:20px 0 0;align-items:center;flex-wrap:wrap}
+  .dash-stat{color:var(--brass-bright);font-weight:600}
 
   /* The veil — warm product plane cools into the system plane */
   .veil-section{position:relative;border-top:1px solid var(--line);
@@ -109,38 +117,60 @@
 </div></header>
 
 <section id="products"><div class="wrap">
-  <div class="kicker">The implements</div>
+  <div class="kicker">The implements &middot; status board</div>
   <h2>What you can pick up</h2>
-  <p class="sub">Each links to its own surface where one exists, or to its repository while its surface is forged. Every one is an active hypothesis &mdash; built, used, and still being challenged.</p>
-
-  <div class="group-label">Judgment &amp; discovery</div>
-  <div class="grid">
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/voices-site/">Voices</a></div><div class="does">Convene a panel of expert voices to critique your work &mdash; each in their own voice, dissent preserved, never flattened to consensus.</div><div class="go"><a href="https://theparlor.github.io/voices-site/">Open Voices &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/cast-site/">Cast</a></div><div class="does">A registry of rendered thinkers &mdash; structured identity for findability, real substance for voice &mdash; you can convene on demand.</div><div class="go"><a href="https://theparlor.github.io/cast-site/">Open Cast &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/pulse-site/">Pulse</a></div><div class="does">A daily brief from the voices you follow &mdash; velocity-tiered, relevance-ranked, tuned to what you actually care about.</div><div class="go"><a href="https://theparlor.github.io/pulse-site/">Open Pulse &rarr;</a></div></div>
+  <p class="sub"><span class="dash-stat" id="dashStat">&mdash;</span> &mdash; a live status board of the portfolio. <strong>In play</strong> = a navigable surface exists. <strong>Scaffolded</strong> = the product is real (repo, spec, governance) but its surface is still being forged. The two systems behind the veil that built them sit below.</p>
+  <div class="dash-legend">
+    <span class="sbadge live">&#9679; in play</span>
+    <span class="sbadge scaffold">&#9675; scaffolded</span>
   </div>
-
-  <div class="group-label">Composition &amp; synthesis</div>
-  <div class="grid">
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/forge-site/">Forge</a></div><div class="does">Compose Methodology &times; Persona &times; Platform into a deployed skill &mdash; render one master frame to many surfaces without losing attribution.</div><div class="go"><a href="https://theparlor.github.io/forge-site/">Open Forge &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/crucible-site/">Crucible</a></div><div class="does">Distill a corpus into a synthesized implement &mdash; the primary synthesis engine for the whole stack.</div><div class="go"><a href="https://theparlor.github.io/crucible-site/">Open Crucible &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/throughline-site/">Throughline</a></div><div class="does">Trace any decision back to the vision it serves &mdash; the single line of meaning that holds a body of work together.</div><div class="go"><a href="https://theparlor.github.io/throughline-site/">Open Throughline &rarr;</a></div></div>
-  </div>
-
-  <div class="group-label">Awareness &amp; record</div>
-  <div class="grid">
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/loom-site/">Loom</a></div><div class="does">Cross-session memory &mdash; what every live session knows, so the next one orients instead of re-briefing.</div><div class="go"><a href="https://theparlor.github.io/loom-site/">Open Loom &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/topography-site/">Topography</a></div><div class="does">Plan-state across products &mdash; coherence at a glance, the map of what's in motion everywhere.</div><div class="go"><a href="https://theparlor.github.io/topography-site/">Open Topography &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/witness-site/">Witness</a></div><div class="does">An append-only record of what actually happened &mdash; verbatim, never merged, the conservation law for events.</div><div class="go"><a href="https://theparlor.github.io/witness-site/">Open Witness &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/lodestone-site/">Lodestone</a></div><div class="does">Local semantic recall across everything you've built &mdash; ask in your own words, find it on your own machine.</div><div class="go"><a href="https://theparlor.github.io/lodestone-site/">Open Lodestone &rarr;</a></div></div>
-  </div>
-
-  <div class="group-label">In the world</div>
-  <div class="grid">
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/fieldbook-site/">Fieldbook</a></div><div class="does">Turn receipts into compliant, narrated expense reports &mdash; the full lifecycle for road-warrior consultants.</div><div class="go"><a href="https://theparlor.github.io/fieldbook-site/">Open Fieldbook &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/studio-control-site/">studio-control</a></div><div class="does">One control surface for your studio hardware &mdash; where software state is a hypothesis and the physical world is the fact.</div><div class="go"><a href="https://theparlor.github.io/studio-control-site/">Open studio-control &rarr;</a></div></div>
-    <div class="card"><div class="nm"><a href="https://theparlor.github.io/digital-declutter-site/">digital-declutter</a></div><div class="does">Behavioral governance for file organization &mdash; rules and skills that keep a workspace coherent as it grows.</div><div class="go"><a href="https://theparlor.github.io/digital-declutter-site/">Open digital-declutter &rarr;</a></div></div>
-  </div>
+  <div id="catalog"></div>
+  <script>
+    const PRODUCTS = [
+      {n:"Voices",g:"Judgment & discovery",s:"live",u:"voices-site",d:"Convene a panel of expert voices to critique your work — each in their own voice, dissent preserved, never flattened to consensus."},
+      {n:"Cast",g:"Judgment & discovery",s:"live",u:"cast-site",d:"A registry of rendered thinkers — structured identity for findability, real substance for voice — you can convene on demand."},
+      {n:"Pulse",g:"Judgment & discovery",s:"live",u:"pulse-site",d:"A daily brief from the voices you follow — velocity-tiered, relevance-ranked, tuned to what you actually care about."},
+      {n:"Forge",g:"Composition & synthesis",s:"live",u:"forge-site",d:"Compose Methodology × Persona × Platform into a deployed skill — render one master frame to many surfaces without losing attribution."},
+      {n:"Crucible",g:"Composition & synthesis",s:"live",u:"crucible-site",d:"Distill a corpus into a synthesized implement — the primary synthesis engine for the whole stack."},
+      {n:"Throughline",g:"Composition & synthesis",s:"live",u:"throughline-site",d:"Trace any decision back to the vision it serves — the single line of meaning that holds a body of work together."},
+      {n:"Loom",g:"Awareness & record",s:"live",u:"loom-site",d:"Cross-session memory — what every live session knows, so the next one orients instead of re-briefing."},
+      {n:"Topography",g:"Awareness & record",s:"live",u:"topography-site",d:"Plan-state across products — coherence at a glance, the map of what's in motion everywhere."},
+      {n:"Witness",g:"Awareness & record",s:"live",u:"witness-site",d:"An append-only record of what actually happened — verbatim, never merged, the conservation law for events."},
+      {n:"Lodestone",g:"Awareness & record",s:"live",u:"lodestone-site",d:"Local semantic recall across everything you've built — ask in your own words, find it on your own machine."},
+      {n:"Fieldbook",g:"In the world",s:"live",u:"fieldbook-site",d:"Turn receipts into compliant, narrated expense reports — the full lifecycle for road-warrior consultants."},
+      {n:"studio-control",g:"In the world",s:"live",u:"studio-control-site",d:"One control surface for your studio hardware — where software state is a hypothesis and the physical world is the fact."},
+      {n:"digital-declutter",g:"In the world",s:"live",u:"digital-declutter-site",d:"Behavioral governance for file organization — rules and skills that keep a workspace coherent as it grows."},
+      {n:"Warp",g:"Substrate & emerging",s:"scaffold",d:"Axiom-tensioning and altitude-stratification — hold an idea under tension across every altitude it touches."},
+      {n:"Cortège",g:"Substrate & emerging",s:"scaffold",d:"A domain-aware fetch fabric — polite, fast parallel research sweeps that don't trip rate limits."},
+      {n:"Conduit",g:"Substrate & emerging",s:"scaffold",d:"A cross-surface harness — your identity, memory, and voice made available on every surface you work in."},
+      {n:"library-index",g:"Substrate & emerging",s:"scaffold",d:"ML enrichment of a 39k+ file knowledge base — entity extraction, concept fingerprinting, nightly catalog."},
+      {n:"library-index-mcp",g:"Substrate & emerging",s:"scaffold",d:"An MCP read/write port over the library index — search, lookup, and attribution from any surface."},
+      {n:"reference-substrate",g:"Substrate & emerging",s:"scaffold",d:"Infra-layer ID assignment and canonical-artifact promotion — the plumbing under the portfolio."},
+      {n:"org-design-tooling",g:"Substrate & emerging",s:"scaffold",d:"Workspace governance tooling — placement resolver, declutter, and governance-chain audits."},
+      {n:"Gauntlet",g:"Substrate & emerging",s:"scaffold",d:"A disconfirmation engine — run an idea through a gauntlet built to break it before reality does."},
+      {n:"Understudy",g:"Substrate & emerging",s:"scaffold",d:"Emerging — its surface and definition are still being forged."}
+    ];
+    const GROUPS = ["Judgment & discovery","Composition & synthesis","Awareness & record","In the world","Substrate & emerging"];
+    const cat = document.getElementById('catalog');
+    const nLive = PRODUCTS.filter(p => p.s === 'live').length;
+    const nScaf = PRODUCTS.filter(p => p.s === 'scaffold').length;
+    document.getElementById('dashStat').textContent = nLive + ' in play · ' + nScaf + ' scaffolded';
+    GROUPS.forEach(g => {
+      const items = PRODUCTS.filter(p => p.g === g);
+      if (!items.length) return;
+      const lbl = document.createElement('div'); lbl.className = 'group-label'; lbl.textContent = g; cat.appendChild(lbl);
+      const grid = document.createElement('div'); grid.className = 'grid';
+      items.forEach(p => {
+        const live = p.s === 'live';
+        const url = 'https://theparlor.github.io/' + p.u + '/';
+        const nm = live ? '<a href="' + url + '">' + p.n + '</a>' : p.n;
+        const badge = live ? '<span class="sbadge live">&#9679; in play</span>' : '<span class="sbadge scaffold">&#9675; scaffolded</span>';
+        const go = live ? '<div class="go"><a href="' + url + '">Open ' + p.n + ' &rarr;</a></div>' : '<div class="go"><span class="soon">surface forging</span></div>';
+        grid.innerHTML += '<div class="card' + (live ? '' : ' scaffold') + '"><div class="chead"><span class="nm">' + nm + '</span>' + badge + '</div><div class="does">' + p.d + '</div>' + go + '</div>';
+      });
+      cat.appendChild(grid);
+    });
+  </script>
 </div></section>
 
 <section id="veil" class="veil-section"><div class="wrap">
