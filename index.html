@@ -73,6 +73,11 @@
   .card.scaffold{opacity:.85}
   .dash-legend{display:flex;gap:12px;margin:20px 0 0;align-items:center;flex-wrap:wrap}
   .dash-stat{color:var(--brass-bright);font-weight:600}
+  .tier-head{margin:50px 0 4px;padding-top:14px;border-top:1px solid var(--line)}
+  .tier-head.product{border-top:none;padding-top:8px;margin-top:30px}
+  .tier-head h3{font-family:'Playfair Display';font-size:clamp(26px,3.2vw,34px);font-weight:800;color:var(--bone);letter-spacing:-0.3px}
+  .tier-head.foundry h3{color:var(--brass-bright)}
+  .tier-head .td{font-size:14.5px;color:var(--bone-dim);margin-top:5px;font-weight:300;max-width:62ch}
 
   /* The veil — warm product plane cools into the system plane */
   .veil-section{position:relative;border-top:1px solid var(--line);
@@ -119,7 +124,7 @@
 <section id="products"><div class="wrap">
   <div class="kicker">The implements &middot; status board</div>
   <h2>What you can pick up</h2>
-  <p class="sub"><span class="dash-stat" id="dashStat">&mdash;</span> &mdash; a live status board of the portfolio. <strong>In play</strong> = a navigable surface exists. <strong>Scaffolded</strong> = the product is real (repo, spec, governance) but its surface is still being forged. The two systems behind the veil that built them sit below.</p>
+  <p class="sub"><span class="dash-stat" id="dashStat">&mdash;</span> &mdash; sorted into two tiers: <strong>Products</strong> you'd pick up for your own work, and <strong>The Foundry</strong> that makes and runs them. The two systems that forged everything sit behind the veil below.</p>
   <div class="dash-legend">
     <span class="sbadge live">&#9679; in play</span>
     <span class="sbadge scaffold">&#9675; scaffolded</span>
@@ -127,48 +132,57 @@
   <div id="catalog"></div>
   <script>
     const PRODUCTS = [
-      {n:"Voices",g:"Judgment & discovery",s:"live",u:"voices-site",d:"Convene a panel of expert voices to critique your work — each in their own voice, dissent preserved, never flattened to consensus."},
-      {n:"Cast",g:"Judgment & discovery",s:"live",u:"cast-site",d:"A registry of rendered thinkers — structured identity for findability, real substance for voice — you can convene on demand."},
-      {n:"Pulse",g:"Judgment & discovery",s:"live",u:"pulse-site",d:"A daily brief from the voices you follow — velocity-tiered, relevance-ranked, tuned to what you actually care about."},
-      {n:"Forge",g:"Composition & synthesis",s:"live",u:"forge-site",d:"Compose Methodology × Persona × Platform into a deployed skill — render one master frame to many surfaces without losing attribution."},
-      {n:"Crucible",g:"Composition & synthesis",s:"live",u:"crucible-site",d:"Distill a corpus into a synthesized implement — the primary synthesis engine for the whole stack."},
-      {n:"Throughline",g:"Composition & synthesis",s:"live",u:"throughline-site",d:"Trace any decision back to the vision it serves — the single line of meaning that holds a body of work together."},
-      {n:"Loom",g:"Awareness & record",s:"live",u:"loom-site",d:"Cross-session memory — what every live session knows, so the next one orients instead of re-briefing."},
-      {n:"Topography",g:"Awareness & record",s:"live",u:"topography-site",d:"Plan-state across products — coherence at a glance, the map of what's in motion everywhere."},
-      {n:"Witness",g:"Awareness & record",s:"live",u:"witness-site",d:"An append-only record of what actually happened — verbatim, never merged, the conservation law for events."},
-      {n:"Lodestone",g:"Awareness & record",s:"live",u:"lodestone-site",d:"Local semantic recall across everything you've built — ask in your own words, find it on your own machine."},
-      {n:"Fieldbook",g:"In the world",s:"live",u:"fieldbook-site",d:"Turn receipts into compliant, narrated expense reports — the full lifecycle for road-warrior consultants."},
-      {n:"studio-control",g:"In the world",s:"live",u:"studio-control-site",d:"One control surface for your studio hardware — where software state is a hypothesis and the physical world is the fact."},
-      {n:"digital-declutter",g:"In the world",s:"live",u:"digital-declutter-site",d:"Behavioral governance for file organization — rules and skills that keep a workspace coherent as it grows."},
-      {n:"Warp",g:"Substrate & emerging",s:"scaffold",d:"Axiom-tensioning and altitude-stratification — hold an idea under tension across every altitude it touches."},
-      {n:"Cortège",g:"Substrate & emerging",s:"scaffold",d:"A domain-aware fetch fabric — polite, fast parallel research sweeps that don't trip rate limits."},
-      {n:"Conduit",g:"Substrate & emerging",s:"scaffold",d:"A cross-surface harness — your identity, memory, and voice made available on every surface you work in."},
-      {n:"library-index",g:"Substrate & emerging",s:"scaffold",d:"ML enrichment of a 39k+ file knowledge base — entity extraction, concept fingerprinting, nightly catalog."},
-      {n:"library-index-mcp",g:"Substrate & emerging",s:"scaffold",d:"An MCP read/write port over the library index — search, lookup, and attribution from any surface."},
-      {n:"reference-substrate",g:"Substrate & emerging",s:"scaffold",d:"Infra-layer ID assignment and canonical-artifact promotion — the plumbing under the portfolio."},
-      {n:"org-design-tooling",g:"Substrate & emerging",s:"scaffold",d:"Workspace governance tooling — placement resolver, declutter, and governance-chain audits."},
-      {n:"Gauntlet",g:"Substrate & emerging",s:"scaffold",d:"A disconfirmation engine — run an idea through a gauntlet built to break it before reality does."},
-      {n:"Understudy",g:"Substrate & emerging",s:"scaffold",d:"Emerging — its surface and definition are still being forged."}
+      {n:"Voices",t:"product",g:"Judgment & discovery",s:"live",u:"voices-site",d:"Convene a panel of expert voices to critique your work — each in their own voice, dissent preserved, never flattened to consensus."},
+      {n:"Pulse",t:"product",g:"Judgment & discovery",s:"live",u:"pulse-site",d:"A daily brief from the voices you follow — velocity-tiered, relevance-ranked, tuned to what you actually care about."},
+      {n:"Lodestone",t:"product",g:"Judgment & discovery",s:"live",u:"lodestone-site",d:"Local semantic recall across everything you've built — ask in your own words, find it on your own machine."},
+      {n:"Fieldbook",t:"product",g:"In the world",s:"live",u:"fieldbook-site",d:"Turn receipts into compliant, narrated expense reports — the full lifecycle for road-warrior consultants."},
+      {n:"studio-control",t:"product",g:"In the world",s:"live",u:"studio-control-site",d:"One control surface for your studio hardware — where software state is a hypothesis and the physical world is the fact."},
+      {n:"digital-declutter",t:"product",g:"In the world",s:"live",u:"digital-declutter-site",d:"Behavioral governance for file organization — rules and skills that keep a workspace coherent as it grows."},
+      {n:"Forge",t:"foundry",g:"Makers — compose the IP into products",s:"live",u:"forge-site",d:"Compose Methodology × Persona × Platform into a deployed skill — render one master frame to many surfaces without losing attribution."},
+      {n:"Cast",t:"foundry",g:"Makers — compose the IP into products",s:"live",u:"cast-site",d:"A registry of rendered thinkers — structured identity for findability, real substance for voice. Cast is what Forge and Voices draw on."},
+      {n:"Crucible",t:"foundry",g:"Makers — compose the IP into products",s:"live",u:"crucible-site",d:"Distill a corpus into a synthesized implement — the primary synthesis engine that feeds the makers."},
+      {n:"Loom",t:"foundry",g:"Operators — run & observe the building",s:"live",u:"loom-site",d:"Cross-session memory — what every live session knows, so the next one orients instead of re-briefing."},
+      {n:"Topography",t:"foundry",g:"Operators — run & observe the building",s:"live",u:"topography-site",d:"Plan-state across products — coherence at a glance, the map of what's in motion everywhere."},
+      {n:"Witness",t:"foundry",g:"Operators — run & observe the building",s:"live",u:"witness-site",d:"An append-only record of what actually happened — verbatim, never merged, the conservation law for events."},
+      {n:"Throughline",t:"foundry",g:"Operators — run & observe the building",s:"live",u:"throughline-site",d:"Trace any decision back to the vision it serves — the single line of meaning that holds a body of work together."},
+      {n:"library-index",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"ML enrichment of a 39k+ file knowledge base — entity extraction, concept fingerprinting, nightly catalog."},
+      {n:"library-index-mcp",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"An MCP read/write port over the library index — search, lookup, and attribution from any surface."},
+      {n:"Conduit",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"A cross-surface harness — your identity, memory, and voice made available on every surface you work in."},
+      {n:"reference-substrate",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"Infra-layer ID assignment and canonical-artifact promotion — the plumbing under the portfolio."},
+      {n:"Cortège",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"A domain-aware fetch fabric — polite, fast parallel research sweeps that don't trip rate limits."},
+      {n:"org-design-tooling",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"Workspace governance tooling — placement resolver, declutter, and governance-chain audits."},
+      {n:"Warp",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"Axiom-tensioning and altitude-stratification — hold an idea under tension across every altitude it touches."},
+      {n:"Gauntlet",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"A disconfirmation engine — run an idea through a gauntlet built to break it before reality does."},
+      {n:"Understudy",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"Emerging — its surface and definition are still being forged."}
     ];
-    const GROUPS = ["Judgment & discovery","Composition & synthesis","Awareness & record","In the world","Substrate & emerging"];
+    const TIERS = [
+      {k:"product",label:"Products",desc:"Tools you'd pick up for your own work — each one stands alone, no portfolio required.",subs:["Judgment & discovery","In the world"]},
+      {k:"foundry",label:"The Foundry",desc:"The machinery that makes and runs the products — and forges the IP behind them.",subs:["Makers — compose the IP into products","Operators — run & observe the building","Substrate — under it all"]}
+    ];
     const cat = document.getElementById('catalog');
     const nLive = PRODUCTS.filter(p => p.s === 'live').length;
     const nScaf = PRODUCTS.filter(p => p.s === 'scaffold').length;
     document.getElementById('dashStat').textContent = nLive + ' in play · ' + nScaf + ' scaffolded';
-    GROUPS.forEach(g => {
-      const items = PRODUCTS.filter(p => p.g === g);
-      if (!items.length) return;
-      const lbl = document.createElement('div'); lbl.className = 'group-label'; lbl.textContent = g; cat.appendChild(lbl);
-      const grid = document.createElement('div'); grid.className = 'grid';
-      items.forEach(p => {
-        const live = p.s === 'live';
-        const url = 'https://theparlor.github.io/' + p.u + '/';
-        const nm = live ? '<a href="' + url + '">' + p.n + '</a>' : p.n;
-        const badge = live ? '<span class="sbadge live">&#9679; in play</span>' : '<span class="sbadge scaffold">&#9675; scaffolded</span>';
-        const go = live ? '<div class="go"><a href="' + url + '">Open ' + p.n + ' &rarr;</a></div>' : '<div class="go"><span class="soon">surface forging</span></div>';
-        grid.innerHTML += '<div class="card' + (live ? '' : ' scaffold') + '"><div class="chead"><span class="nm">' + nm + '</span>' + badge + '</div><div class="does">' + p.d + '</div>' + go + '</div>';
+    function cardHTML(p){
+      const live = p.s === 'live';
+      const url = 'https://theparlor.github.io/' + p.u + '/';
+      const nm = live ? '<a href="' + url + '">' + p.n + '</a>' : p.n;
+      const badge = live ? '<span class="sbadge live">&#9679; in play</span>' : '<span class="sbadge scaffold">&#9675; scaffolded</span>';
+      const go = live ? '<div class="go"><a href="' + url + '">Open ' + p.n + ' &rarr;</a></div>' : '<div class="go"><span class="soon">surface forging</span></div>';
+      return '<div class="card' + (live ? '' : ' scaffold') + '"><div class="chead"><span class="nm">' + nm + '</span>' + badge + '</div><div class="does">' + p.d + '</div>' + go + '</div>';
+    }
+    TIERS.forEach(tier => {
+      const th = document.createElement('div'); th.className = 'tier-head ' + tier.k;
+      th.innerHTML = '<h3>' + tier.label + '</h3><div class="td">' + tier.desc + '</div>';
+      cat.appendChild(th);
+      tier.subs.forEach(sub => {
+        const items = PRODUCTS.filter(p => p.t === tier.k && p.g === sub);
+        if (!items.length) return;
+        const lbl = document.createElement('div'); lbl.className = 'group-label'; lbl.textContent = sub; cat.appendChild(lbl);
+        const grid = document.createElement('div'); grid.className = 'grid';
+        items.forEach(p => { grid.innerHTML += cardHTML(p); });
+        cat.appendChild(grid);
       });
-      cat.appendChild(grid);
     });
   </script>
 </div></section>
