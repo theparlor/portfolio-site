@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>The Parlor — products forged from one operating model</title>
-<meta name="description" content="A portfolio of composable products, each forged through the same operating model. Navigate the products; slip behind the veil to see the systems that built them.">
+<title>The Parlor: one operator, one operating model</title>
+<meta name="description" content="One person runs 85 repositories under one versioned session kit, on plain git, with a system that measures its own use and decisions that are numbered. The engines below are the evidence; behind the veil are the systems that built them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -64,6 +64,8 @@
   .card .go{margin-top:14px;font-size:12.5px;letter-spacing:.4px}
   .card .go a{color:var(--molten)}
   .card .go .soon{color:var(--bone-faint);font-style:italic}
+  .card .repo{color:var(--bone-faint);font-size:12.5px;margin-top:12px;font-family:ui-monospace,Menlo,monospace}
+  .card .holds{color:var(--bone-dim);font-size:13.5px;margin-top:10px;line-height:1.5}
   .group-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--bone-faint);margin:34px 0 0;font-weight:600}
   .chead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:7px}
   .chead .nm{margin-bottom:0}
@@ -71,6 +73,14 @@
   .sbadge.live{background:rgba(232,119,43,0.13);color:var(--ember);border:1px solid rgba(232,119,43,0.32)}
   .sbadge.scaffold{background:rgba(126,138,152,0.10);color:var(--steel-light);border:1px solid var(--steel-deep)}
   .card.scaffold{opacity:.85}
+  .sbadge.parked{background:transparent;color:var(--bone-faint);border:1px dashed var(--line)}
+  .card.parked{opacity:.7}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+  .stat{background:var(--ground-2);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+  .stat .v{font-family:'Playfair Display';font-size:34px;font-weight:800;color:var(--molten);line-height:1.1}
+  .stat .k{font-size:13.5px;color:var(--bone-dim);margin-top:6px;line-height:1.45}
+  .stats-cap{font-size:12.5px;color:var(--bone-faint);font-style:italic;margin-top:12px}
+  @media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
   .dash-legend{display:flex;gap:12px;margin:20px 0 0;align-items:center;flex-wrap:wrap}
   .dash-stat{color:var(--brass-bright);font-weight:600}
   .tier-head{margin:50px 0 4px;padding-top:14px;border-top:1px solid var(--line)}
@@ -79,7 +89,7 @@
   .tier-head.foundry h3{color:var(--brass-bright)}
   .tier-head .td{font-size:14.5px;color:var(--bone-dim);margin-top:5px;font-weight:300;max-width:62ch}
 
-  /* The veil — warm product plane cools into the system plane */
+  /* The veil: warm product plane cools into the system plane */
   .veil-section{position:relative;border-top:1px solid var(--line);
     background:linear-gradient(180deg, var(--ground) 0%, #141821 100%);}
   .veil-section .kicker{color:var(--steel-light)}
@@ -103,73 +113,89 @@
 </head>
 <body>
 
-<div class="ptbanner"><b>v0 · pressure-test</b> &nbsp;·&nbsp; not public, not indexed &nbsp;·&nbsp; a working portfolio, shown for challenge</div>
+<div class="ptbanner"><b>v0 · pressure-test</b> &nbsp;·&nbsp; unlisted: this page and its repository are public, and a robots file only asks search engines to stay away &nbsp;·&nbsp; a working portfolio, shown for challenge</div>
 
 <nav class="top"><div class="wrap">
   <span class="brand"><span class="mark">&#9874;</span> The Parlor</span>
   <span class="spacer"></span>
   <a class="nl" href="#products">Products</a>
   <a class="nl" href="#veil">Behind the veil</a>
-  <a class="veil" href="#veil">Slip behind the veil &rarr;</a>
+  <a class="veil" href="#veil">Slip behind the veil</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
-  <div class="eyebrow">A portfolio, forged</div>
-  <h1 class="title">Many implements.<br>One way of <em>making</em> them.</h1>
-  <p class="lede">These are composable products &mdash; each one a tool you can pick up and use. What binds them isn't a category; it's that every one was <strong>forged the same way</strong>: noticed, specified, built, and observed through a single operating model. Use the products. Then slip behind the veil to see the machinery.</p>
+  <div class="eyebrow">An operating model, measured</div>
+  <h1 class="title">One operator. Eighty-five repositories.<br>One way of <em>running</em> them.</h1>
+  <p class="lede">One person runs <strong>85 repositories under one versioned session kit</strong>, now at version 42 on every one of them. Every agent session works in its own copy of a repository and lands its work straight to main on plain git: <strong>541 landings in one measured week</strong>, about 77 a day, with 3.6 percent of land attempts failed or blocked. The system measures its own use from an append-only event log, and the rules it runs on are <strong>numbered decisions, 176 of them</strong>. The engines below are the evidence for that operating model. They are not products to install: every engine repository is private and assumes this one folder tree.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">85</div><div class="k">repositories on one session kit, version 42</div></div>
+    <div class="stat"><div class="v">541</div><div class="k">landings in 7 days, 527 straight to main</div></div>
+    <div class="stat"><div class="v">3.6%</div><div class="k">of land attempts failed or blocked that week</div></div>
+    <div class="stat"><div class="v">176</div><div class="k">numbered workspace decision records</div></div>
+  </div>
+  <p class="stats-cap">Measured on or before 2026-11-22. The week is the baseline week recorded on 2026-11-14.</p>
   <div class="forge-rule"></div>
   <p class="forge-cap">Hot to cool: molten ore is shaped early, tempered steel ships late. The same heat runs through every implement here.</p>
 </div></header>
 
 <section id="products"><div class="wrap">
-  <div class="kicker">The implements &middot; status board</div>
-  <h2>What you can pick up</h2>
-  <p class="sub"><span class="dash-stat" id="dashStat">&mdash;</span> &mdash; sorted into two tiers: <strong>Products</strong> you'd pick up for your own work, and <strong>The Foundry</strong> that makes and runs them. The two systems that forged everything sit behind the veil below.</p>
+  <div class="kicker">The evidence &middot; status by measured use</div>
+  <h2>What the operating model built</h2>
+  <p class="sub">Twenty-eight repositories, each with its own git history and decision log: <span class="dash-stat" id="dashStat">counting</span>. The labels are not opinion. The system sorted its own engines from 60 days of use events, git and the session ledger, and labelled two of them parked. They fall into two tiers: <strong>Products</strong> aimed at work beyond the system itself, and <strong>The Foundry</strong> that makes and runs them. Seven still carry a working name that describes a mechanism instead of a purpose. Each of those is shown here by what it is for, with the working name beneath, and where one holds many smaller tasks the card lists them. Parallax, the twenty-eighth, sits behind the veil with Intent.</p>
   <div class="dash-legend">
-    <span class="sbadge live">&#9679; in play</span>
-    <span class="sbadge scaffold">&#9675; scaffolded</span>
+    <span class="sbadge live">&#9679; daily use</span>
+    <span class="sbadge scaffold">&#9675; occasional use</span>
+    <span class="sbadge parked">&#9675; parked</span>
   </div>
   <div id="catalog"></div>
   <script>
     const PRODUCTS = [
-      {n:"Voices",t:"product",g:"Judgment & discovery",s:"live",u:"voices-site",d:"Convene a panel of expert voices to critique your work — each in their own voice, dissent preserved, never flattened to consensus."},
-      {n:"Pulse",t:"product",g:"Judgment & discovery",s:"live",u:"pulse-site",d:"A daily brief from the voices you follow — velocity-tiered, relevance-ranked, tuned to what you actually care about."},
-      {n:"Lodestone",t:"product",g:"Judgment & discovery",s:"live",u:"lodestone-site",d:"Local semantic recall across everything you've built — ask in your own words, find it on your own machine."},
-      {n:"Fieldbook",t:"product",g:"In the world",s:"live",u:"fieldbook-site",d:"Turn receipts into compliant, narrated expense reports — the full lifecycle for road-warrior consultants."},
-      {n:"studio-control",t:"product",g:"In the world",s:"live",u:"studio-control-site",d:"One control surface for your studio hardware — where software state is a hypothesis and the physical world is the fact."},
-      {n:"digital-declutter",t:"product",g:"In the world",s:"live",u:"digital-declutter-site",d:"Behavioral governance for file organization — rules and skills that keep a workspace coherent as it grows."},
-      {n:"Forge",t:"foundry",g:"Makers — compose the IP into products",s:"live",u:"forge-site",d:"Compose Methodology × Persona × Platform into a deployed skill — render one master frame to many surfaces without losing attribution."},
-      {n:"Cast",t:"foundry",g:"Makers — compose the IP into products",s:"live",u:"cast-site",d:"A registry of rendered thinkers — structured identity for findability, real substance for voice. Cast is what Forge and Voices draw on."},
-      {n:"Crucible",t:"foundry",g:"Makers — compose the IP into products",s:"live",u:"crucible-site",d:"Distill a corpus into a synthesized implement — the primary synthesis engine that feeds the makers."},
-      {n:"Loom",t:"foundry",g:"Operators — run & observe the building",s:"live",u:"loom-site",d:"Cross-session memory — what every live session knows, so the next one orients instead of re-briefing."},
-      {n:"Topography",t:"foundry",g:"Operators — run & observe the building",s:"live",u:"topography-site",d:"Plan-state across products — coherence at a glance, the map of what's in motion everywhere."},
-      {n:"Witness",t:"foundry",g:"Operators — run & observe the building",s:"live",u:"witness-site",d:"An append-only record of what actually happened — verbatim, never merged, the conservation law for events."},
-      {n:"Throughline",t:"foundry",g:"Operators — run & observe the building",s:"live",u:"throughline-site",d:"Trace any decision back to the vision it serves — the single line of meaning that holds a body of work together."},
-      {n:"library-index",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"ML enrichment of a 39k+ file knowledge base — entity extraction, concept fingerprinting, nightly catalog."},
-      {n:"library-index-mcp",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"An MCP read/write port over the library index — search, lookup, and attribution from any surface."},
-      {n:"Conduit",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"A cross-surface harness — your identity, memory, and voice made available on every surface you work in."},
-      {n:"reference-substrate",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"Infra-layer ID assignment and canonical-artifact promotion — the plumbing under the portfolio."},
-      {n:"Cortège",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"A domain-aware fetch fabric — polite, fast parallel research sweeps that don't trip rate limits."},
-      {n:"org-design-tooling",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"Workspace governance tooling — placement resolver, declutter, and governance-chain audits."},
-      {n:"Warp",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"Axiom-tensioning and altitude-stratification — hold an idea under tension across every altitude it touches."},
-      {n:"Gauntlet",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"A disconfirmation engine — run an idea through a gauntlet built to break it before reality does."},
-      {n:"Understudy",t:"foundry",g:"Substrate — under it all",s:"scaffold",d:"Emerging — its surface and definition are still being forged."}
+      // s: measured 60-day use tier (daily, occasional, parked). u: description page, where one exists.
+      {n:"Voices",t:"product",g:"Judgment & discovery",s:"occasional",u:"voices-site",d:"Convene a panel of expert voices to critique your work, each in their own voice, dissent preserved and never flattened to consensus."},
+      {n:"Pulse",t:"product",g:"Judgment & discovery",s:"occasional",u:"pulse-site",d:"A daily brief from the voices you follow: velocity-tiered, relevance-ranked, tuned to what you actually care about."},
+      {n:"Lodestone",t:"product",g:"Judgment & discovery",s:"daily",u:"lodestone-site",d:"Local semantic recall across everything you've built. Ask in your own words, find it on your own machine."},
+      {n:"Gauge",t:"product",g:"Judgment & discovery",s:"occasional",d:"Heuristic evaluation of an artifact against cited principle packs, packaged as a plugin."},
+      {n:"Fieldbook",t:"product",g:"In the world",s:"occasional",u:"fieldbook-site",d:"Turn receipts into compliant, narrated expense reports: the full lifecycle for a traveling consultant, on an append-only ledger."},
+      {n:"Studio control surface",r:"studio-control",w:1,t:"product",g:"In the world",s:"occasional",u:"studio-control-site",d:"One control surface for your studio hardware, where software state is a hypothesis and the physical world is the fact."},
+      {n:"Keeping a workspace in order",r:"digital-declutter",w:1,h:"Holds many small tasks: organize Downloads, organize Desktop, organize Documents, diagnose, set up",t:"product",g:"In the world",s:"occasional",u:"digital-declutter-site",d:"Behavioral governance for file organization: rules and skills that keep a workspace coherent as it grows."},
+      {n:"Understudy",t:"product",g:"In the world",s:"occasional",d:"Produces privacy-safe test data from a real ledger, with an attestation. Version 1 has shipped."},
+      {n:"Forge",t:"foundry",g:"Makers: compose the IP into products",s:"daily",u:"forge-site",d:"Compose Methodology × Persona × Platform into a deployed skill: render one master frame to many surfaces without losing attribution. 646 rendered personas and 86 skills."},
+      {n:"Cast",t:"foundry",g:"Makers: compose the IP into products",s:"daily",u:"cast-site",d:"A registry of rendered thinkers: 786 structured entries, 755 source-content folders and 53 composite archetypes. Cast is what Forge and Voices draw on."},
+      {n:"Crucible",t:"foundry",g:"Makers: compose the IP into products",s:"parked",u:"crucible-site",d:"Designed as the synthesis step between corpus and Cast. Not in use: the synthesis scripts live in Cast today."},
+      {n:"Governance and session layer",r:"org-design-tooling",w:1,h:"Holds: the session kit, the daily governance audit, the rollout tool, the public site check",t:"foundry",g:"Operators: run & observe the building",s:"daily",d:"The session kit every repository carries (version 42, on all 85), plus the reaper, the rollout tool and the governance audit."},
+      {n:"Quartermaster",t:"foundry",g:"Operators: run & observe the building",s:"daily",d:"The work queue. Enqueue is the only write path; the tick classifies work and never executes it."},
+      {n:"Witness",t:"foundry",g:"Operators: run & observe the building",s:"daily",u:"witness-site",d:"An append-only record of what actually happened: verbatim, never merged, never edited. Every engine reports its actions to it, and the use tiers on this page are computed from it."},
+      {n:"Signalbox",t:"foundry",g:"Operators: run & observe the building",s:"daily",d:"One local console over work, signals, decisions, sessions and budget."},
+      {n:"Loom",t:"foundry",g:"Operators: run & observe the building",s:"daily",u:"loom-site",d:"Cross-session awareness: which sessions are live and what they know, so the next one orients instead of re-briefing."},
+      {n:"Acceptance tests for the session layer",r:"wow-acceptance",w:1,t:"foundry",g:"Operators: run & observe the building",s:"occasional",d:"Acceptance tests for the session layer, kept in a separate repository from the code they judge."},
+      {n:"Topography",t:"foundry",g:"Operators: run & observe the building",s:"occasional",u:"topography-site",d:"Plan state and a coherence score across products: a map of what is in motion."},
+      {n:"Throughline",t:"foundry",g:"Operators: run & observe the building",s:"occasional",u:"throughline-site",d:"Trace a decision back to the vision it serves: the single line of meaning that holds a body of work together."},
+      {n:"Reckoning",t:"foundry",g:"Operators: run & observe the building",s:"parked",d:"Reads the decision stream for reversals, waffling and repeated mistakes. Built, not in use."},
+      {n:"Catalog of everything on file",r:"library-index",w:1,h:"Holds: nightly enrichment, entity discovery, the catalog, and a query server (library-index-mcp)",t:"foundry",g:"Substrate: under it all",s:"daily",d:"Nightly enrichment and catalog of every file in the tree: entity extraction, concept fingerprinting, one catalog."},
+      {n:"Cortège",t:"foundry",g:"Substrate: under it all",s:"daily",d:"A domain-aware fetch engine: parallel research sweeps paced per source, so they don't trip rate limits."},
+      {n:"Catalog query server",r:"library-index-mcp",t:"folded",g:"shown inside the catalog's card",s:"occasional",d:"A query server over the library index: search, lookup and attribution from any Claude client."},
+      {n:"Canonical IDs and lineage",r:"reference-substrate",w:1,t:"foundry",g:"Substrate: under it all",s:"occasional",d:"Mints and resolves canonical IDs and records lineage: the plumbing under the portfolio."},
+      {n:"Conduit",t:"foundry",g:"Substrate: under it all",s:"occasional",d:"A cross-surface gateway that makes this context available on other Claude surfaces. Built; idle since early October."},
+      {n:"Warp",t:"foundry",g:"Substrate: under it all",s:"occasional",d:"Checks an artifact for altitude and axiom tension and emits a verdict."},
+      {n:"Gauntlet",t:"foundry",g:"Substrate: under it all",s:"occasional",d:"A disconfirmation engine: run your own claims through a gauntlet built to break them before they ship."},
+      {n:"Parallax",veil:true,s:"occasional",d:"Shown behind the veil."}
     ];
     const TIERS = [
-      {k:"product",label:"Products",desc:"Tools you'd pick up for your own work — each one stands alone, no portfolio required.",subs:["Judgment & discovery","In the world"]},
-      {k:"foundry",label:"The Foundry",desc:"The machinery that makes and runs the products — and forges the IP behind them.",subs:["Makers — compose the IP into products","Operators — run & observe the building","Substrate — under it all"]}
+      {k:"product",label:"Products",desc:"Engines aimed at work beyond the system itself. None can be installed outside this folder tree today.",subs:["Judgment & discovery","In the world"]},
+      {k:"foundry",label:"The Foundry",desc:"The machinery that makes and runs the products, and forges the IP behind them.",subs:["Makers: compose the IP into products","Operators: run & observe the building","Substrate: under it all"]}
     ];
+    const BADGE = {daily:['live','&#9679; daily use'],occasional:['scaffold','&#9675; occasional use'],parked:['parked','&#9675; parked']};
     const cat = document.getElementById('catalog');
-    const nLive = PRODUCTS.filter(p => p.s === 'live').length;
-    const nScaf = PRODUCTS.filter(p => p.s === 'scaffold').length;
-    document.getElementById('dashStat').textContent = nLive + ' in play · ' + nScaf + ' scaffolded';
+    const count = s => PRODUCTS.filter(p => p.s === s).length;
+    document.getElementById('dashStat').textContent = count('daily') + ' in daily use · ' + count('occasional') + ' occasional · ' + count('parked') + ' parked';
     function cardHTML(p){
-      const live = p.s === 'live';
-      const url = 'https://theparlor.github.io/' + p.u + '/';
-      const nm = live ? '<a href="' + url + '">' + p.n + '</a>' : p.n;
-      const badge = live ? '<span class="sbadge live">&#9679; in play</span>' : '<span class="sbadge scaffold">&#9675; scaffolded</span>';
-      const go = live ? '<div class="go"><a href="' + url + '">Open ' + p.n + ' &rarr;</a></div>' : '<div class="go"><span class="soon">surface forging</span></div>';
-      return '<div class="card' + (live ? '' : ' scaffold') + '"><div class="chead"><span class="nm">' + nm + '</span>' + badge + '</div><div class="does">' + p.d + '</div>' + go + '</div>';
+      const url = p.u ? 'https://theparlor.github.io/' + p.u + '/' : '';
+      const nm = url ? '<a href="' + url + '">' + p.n + '</a>' : p.n;
+      const b = BADGE[p.s];
+      const badge = '<span class="sbadge ' + b[0] + '">' + b[1] + '</span>';
+      const go = url ? '<div class="go"><a href="' + url + '">Open the ' + (p.r || p.n) + ' page</a></div>' : '<div class="go"><span class="soon">no description page</span></div>';
+      const cls = p.s === 'daily' ? '' : (p.s === 'parked' ? ' parked' : ' scaffold');
+      return '<div class="card' + cls + '"><div class="chead"><span class="nm">' + nm + '</span>' + badge + '</div><div class="does">' + p.d + '</div>' + (p.h ? '<div class="holds">' + p.h + '</div>' : '') + (p.r ? '<div class="repo">' + (p.w ? 'working name: ' : 'repository: ') + p.r + '</div>' : '') + go + '</div>';
     }
     TIERS.forEach(tier => {
       const th = document.createElement('div'); th.className = 'tier-head ' + tier.k;
@@ -190,27 +216,27 @@
 <section id="veil" class="veil-section"><div class="wrap">
   <div class="kicker">Behind the veil</div>
   <h2>None of these came from nowhere.</h2>
-  <p class="sub">Every implement above was forged by the same machinery. Two systems guided their development &mdash; one is the <em>operating model</em> that built them, the other is the <em>overhead view</em> that holds them together. This is where the warm metalwork cools into the cold architecture underneath.</p>
+  <p class="sub">Every implement above was forged by the same machinery. Two systems guided their development: one is the <em>operating model</em> that built them, the other is the <em>overhead view</em> that holds them together. This is where the warm metalwork cools into the cold architecture underneath.</p>
   <div class="veil-line"></div>
   <div class="veil-grid">
     <div class="veil-card">
       <div class="role">The operating model</div>
       <h3>Intent</h3>
-      <p>How each product is actually built &mdash; a continuous loop of Notice &rarr; Spec &rarr; Execute &rarr; Observe, replacing ceremony with artifacts that compound. Every product here carries its own <code>.intent/</code> governance: signals, specs, decisions, traced in git.</p>
-      <a class="enter" href="https://theparlor.github.io/intent-site/">Enter the operating model &rarr;</a>
+      <p>How each product is actually built: a continuous loop of Notice, Spec, Execute and Observe, replacing ceremony with artifacts that compound. Most products here keep their own decision log, traced in git, and the workspace keeps 176 numbered decision records above them.</p>
+      <a class="enter" href="https://theparlor.github.io/intent-site/">Enter the operating model</a>
     </div>
     <div class="veil-card">
       <div class="role">The overhead view</div>
       <h3>Parallax</h3>
-      <p>What all of this <em>is</em>, seen from above &mdash; the coherence-stack worldview that resolves how twenty-three implements compose into one system. The products are the proof; Parallax is the claim. An active hypothesis, built to be challenged.</p>
-      <a class="enter" href="https://theparlor.github.io/parallax-site/">Enter the overhead view &rarr;</a>
+      <p>What all of this <em>is</em>, seen from above: the coherence-stack worldview that resolves how the 28 product repositories compose into one system. The products are the proof; Parallax is the claim. An active hypothesis, built to be challenged.</p>
+      <a class="enter" href="https://theparlor.github.io/parallax-site/">Enter the overhead view</a>
     </div>
   </div>
 </div></section>
 
 <footer><div class="wrap">
-  <div>The Parlor &mdash; a working portfolio. <strong style="color:var(--steel-light)">v0, forged in the open</strong>, shown for challenge, not yet launched.</div>
-  <div class="prov">Front plane (products) rendered in the Foundry type system; system plane (Intent &middot; Parallax) is the machinery behind the veil. noindex &middot; not public. The same Notice&rarr;Spec&rarr;Execute&rarr;Observe loop runs on this page too.</div>
+  <div>The Parlor: a working portfolio. <strong style="color:var(--steel-light)">v0, forged in the open</strong>, shown for challenge, not yet launched.</div>
+  <div class="prov">Front plane (products) rendered in the Foundry type system; system plane (Intent &middot; Parallax) is the machinery behind the veil. Unlisted, not private: the page and its repository are public, and search engines are asked not to index them. Use tiers measured over 60 days, as of 2026-11-15; other figures measured on or before 2026-11-22. The same Notice, Spec, Execute, Observe loop runs on this page too.</div>
 </div></footer>
 
 </body>
